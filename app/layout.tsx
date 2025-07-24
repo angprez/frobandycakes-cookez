@@ -1,22 +1,22 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Poppins, Dancing_Script } from "next/font/google"
+import { Oswald, Pacifico } from "next/font/google"
 import "./globals.css"
 
-const poppins = Poppins({
+const oswald = Oswald({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
-  variable: "--font-poppins",
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-oswald",
 })
 
-const dancing = Dancing_Script({
+const pacifico = Pacifico({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-dancing",
+  weight: ["400"],
+  variable: "--font-pacifico",
 })
 
 export const metadata: Metadata = {
-  title: "Frobandy Cakes - Luxury Cookies Stuffed with Awesomeness | Wichita",
+  title: "FROBANDYCAKES COOKEZ - Luxury Cookies Stuffed with Awesomeness | Wichita",
   description:
     "Wichita's sweetest luxury cookie boutique. Handcrafted cookies stuffed, filled & topped with pure awesomeness. Pre-order your blissful treats today!",
   keywords: "luxury cookies, Wichita bakery, gourmet cookies, stuffed cookies, cookie boutique, artisan cookies",
@@ -30,7 +30,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} ${dancing.variable} font-poppins antialiased`}>{children}</body>
+      <body className={`${oswald.variable} ${pacifico.variable} font-oswald antialiased`}>{children}</body>
     </html>
   )
 }

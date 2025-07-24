@@ -19,7 +19,7 @@ export default function Navigation() {
   const navItems = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
-    { name: "How It Works", href: "#how-it-works" },
+    { name: "How It Works", href: "#how-it-works", isScroll: true },
     { name: "Contact", href: "/contact" },
   ]
 
@@ -42,8 +42,8 @@ export default function Navigation() {
               <div className="absolute -top-1 -right-1 w-4 h-4 bg-secondary rounded-full sparkle" />
             </div>
             <div>
-              <h1 className="font-dancing text-3xl font-bold text-primary">Frobandy Cakes</h1>
-              <p className="text-xs text-gray-600 font-medium">Stuffed with Awesomeness</p>
+              <h1 className="font-oswald text-2xl md:text-3xl font-bold text-primary">FROBANDYCAKES COOKEZ</h1>
+              <p className="cursive-accent text-xs md:text-sm text-gray-600">Stuffed with Awesomeness</p>
             </div>
           </motion.div>
 
@@ -53,6 +53,15 @@ export default function Navigation() {
               <motion.a
                 key={item.name}
                 href={item.href}
+                onClick={(e) => {
+                  if (item.isScroll) {
+                    e.preventDefault()
+                    const element = document.querySelector(item.href)
+                    if (element) {
+                      element.scrollIntoView({ behavior: "smooth" })
+                    }
+                  }
+                }}
                 className="text-gray-700 hover:text-primary transition-colors duration-300 font-medium"
                 whileHover={{ y: -2 }}
               >
@@ -83,8 +92,17 @@ export default function Navigation() {
                 <a
                   key={item.name}
                   href={item.href}
+                  onClick={(e) => {
+                    if (item.isScroll) {
+                      e.preventDefault()
+                      const element = document.querySelector(item.href)
+                      if (element) {
+                        element.scrollIntoView({ behavior: "smooth" })
+                      }
+                    }
+                    setIsMobileMenuOpen(false)
+                  }}
                   className="block px-4 py-2 text-gray-700 hover:text-primary transition-colors font-medium"
-                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.name}
                 </a>

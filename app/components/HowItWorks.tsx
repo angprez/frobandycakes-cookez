@@ -40,7 +40,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="section-padding bg-gradient-to-br from-pink-50/50 to-blue-50/50">
+    <section id="how-it-works" className="section-padding bg-gradient-to-br from-pink-50/50 to-blue-50/50 scroll-mt-20">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -50,10 +50,10 @@ export default function HowItWorks() {
         >
           <div className="inline-flex items-center space-x-2 mb-4">
             <Heart className="w-6 h-6 text-primary" />
-            <span className="font-dancing text-2xl text-primary">Sweet & Simple</span>
+            <span className="cursive-accent text-primary">Sweet & Simple</span>
             <Heart className="w-6 h-6 text-primary" />
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          <h2 className="heading-secondary mb-6">
             How It <span className="text-gradient-primary">Works</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
@@ -72,7 +72,7 @@ export default function HowItWorks() {
               className="relative group"
             >
               <div
-                className={`${step.bgColor} rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-${step.color}/20 h-full`}
+                className={`${step.bgColor} rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-${step.color}/20 h-full`}
               >
                 {/* Step Number */}
                 <div className="absolute -top-4 -right-4 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-gray-100">
@@ -86,8 +86,10 @@ export default function HowItWorks() {
                   <step.icon className={`w-8 h-8 text-${step.color}`} />
                 </div>
 
-                <h3 className="text-xl font-bold mb-4 text-gray-800">{step.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{step.description}</p>
+                <h3 className="font-oswald text-lg sm:text-xl font-bold mb-4 text-gray-800 leading-tight">
+                  {step.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed text-sm sm:text-base">{step.description}</p>
               </div>
             </motion.div>
           ))}

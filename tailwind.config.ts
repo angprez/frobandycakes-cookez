@@ -49,8 +49,8 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        poppins: ["var(--font-poppins)", "sans-serif"],
-        dancing: ["var(--font-dancing)", "cursive"],
+        oswald: ["var(--font-oswald)", "sans-serif"],
+        pacifico: ["var(--font-pacifico)", "cursive"],
       },
       keyframes: {
         "accordion-down": {

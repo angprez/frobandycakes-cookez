@@ -20,7 +20,8 @@ const testimonials = [
   },
   {
     name: "Mike T.",
-    review: "I thought I knew what good cookies were... then I tried Frobandy Cakes. My life is forever changed! ✨",
+    review:
+      "I thought I knew what good cookies were... then I tried FROBANDYCAKES COOKEZ. My life is forever changed! ✨",
     rating: 5,
     avatar: "✨",
     location: "Kansas City, MO",
@@ -46,10 +47,10 @@ export default function TestimonialsSection() {
         >
           <div className="inline-flex items-center space-x-2 mb-4">
             <Heart className="w-6 h-6 text-primary" />
-            <span className="font-dancing text-2xl text-primary">Sweet Reviews</span>
+            <span className="cursive-accent text-primary">Sweet Reviews</span>
             <Heart className="w-6 h-6 text-primary" />
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          <h2 className="heading-secondary text-white mb-6">
             Cookie <span className="text-gradient-primary">Love</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
