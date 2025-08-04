@@ -59,11 +59,11 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-oswald font-bold leading-tight mb-6"
+              className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
             >
               <span className="text-gray-800">Luxury Cookies</span>
               <br />
-              <span className="cursive-accent text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-gradient-primary block">
+              <span className="font-dancing text-6xl md:text-7xl lg:text-8xl text-gradient-primary">
                 Stuffed with Awesomeness!
               </span>
             </motion.h1>
@@ -72,7 +72,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7 }}
-              className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed px-4 lg:px-0"
+              className="text-xl md:text-2xl text-gray-600 mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed"
             >
               Net weight 5.5 – 7 oz of pure bliss. Handcrafted with love, stuffed with premium ingredients, and topped
               with magic! ✨
@@ -83,14 +83,10 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start px-4 lg:px-0"
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
-              <button className="btn-primary text-base sm:text-lg px-6 sm:px-10 py-4 sm:py-5 sweet-bounce whitespace-nowrap">
-                Pre-Order Your Bliss! 🍪
-              </button>
-              <button className="btn-secondary text-base sm:text-lg px-6 sm:px-10 py-4 sm:py-5 whitespace-nowrap">
-                See How It Works
-              </button>
+              <button className="btn-primary text-lg px-10 py-5 sweet-bounce">Pre-Order Your Bliss! 🍪</button>
+              <button className="btn-secondary text-lg px-10 py-5">See How It Works</button>
             </motion.div>
 
             {/* Fun Stats */}
@@ -127,7 +123,7 @@ export default function HeroSection() {
                 <div className="relative">
                   <img
                     src="/placeholder.svg?height=600&width=800"
-                    alt="Delicious FROBANDYCAKES COOKEZ cookies"
+                    alt="Delicious Frobandy Cakes cookies"
                     className="w-full h-[500px] object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />

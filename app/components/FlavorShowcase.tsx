@@ -72,10 +72,10 @@ export default function FlavorShowcase() {
         >
           <div className="inline-flex items-center space-x-2 mb-4">
             <Sparkles className="w-6 h-6 text-secondary" />
-            <span className="cursive-accent text-secondary">Monthly Magic</span>
+            <span className="font-dancing text-2xl text-secondary">Monthly Magic</span>
             <Sparkles className="w-6 h-6 text-secondary" />
           </div>
-          <h2 className="heading-secondary mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Rotating <span className="text-gradient-primary">Flavors</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
@@ -114,7 +114,7 @@ export default function FlavorShowcase() {
                     <span className="text-primary font-bold">{flavors[currentFlavor].month} Special</span>
                   </div>
 
-                  <h3 className="font-oswald text-3xl lg:text-4xl font-bold mb-6 text-gray-800 leading-tight">
+                  <h3 className="text-3xl lg:text-4xl font-bold mb-6 text-gray-800 leading-tight">
                     {flavors[currentFlavor].name}
                   </h3>
 

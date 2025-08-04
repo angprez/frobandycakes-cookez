@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FROBANDYCAKES COOKEZ - Stuffed with Awesomeness</title>
+    <meta name="description" content="Wichita's sweetest luxury cookie boutique! We craft cookies stuffed, filled & topped with pure awesomeness. Every bite is 5.5-7 oz of pure bliss!">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navigation" class="nav-container">
+        <div class="container-custom">
+            <div class="nav-content">
+                <!-- Logo -->
+                <div class="logo-container">
+                    <div class="logo-icon">
+                        <div class="logo-circle gradient-primary">
+                            <i data-lucide="heart" class="logo-heart"></i>
+                        </div>
+                        <div class="sparkle-dot"></div>
+                    </div>
+                    <div class="logo-text">
+                        <h1 class="logo-title">FROBANDYCAKES COOKEZ</h1>
+                        <p class="logo-subtitle">Stuffed with Awesomeness</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="nav-desktop">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="#how-it-works" class="nav-link">How It Works</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                    <button class="btn-primary sweet-bounce">Pre-Order Now! 🍪</button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="mobile-menu-btn">
+                    <i data-lucide="menu" class="menu-icon"></i>
+                    <i data-lucide="x" class="close-icon hidden"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu hidden">
+                <div class="mobile-menu-content">
+                    <a href="#home" class="mobile-nav-link">Home</a>
+                    <a href="about.html" class="mobile-nav-link">About</a>
+                    <a href="#how-it-works" class="mobile-nav-link">How It Works</a>
+                    <a href="contact.html" class="mobile-nav-link">Contact</a>
+                    <button class="btn-primary mobile-btn">Pre-Order Now! 🍪</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container-custom">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-badge">
+                        <span class="badge-text">🍪 Wichita's Sweetest Luxury Cookie Boutique</span>
+                    </div>
+                    <h1 class="hero-title">
+                        Cookies Stuffed with
+                        <span class="text-gradient-primary">Pure Awesomeness!</span>
+                    </h1>
+                    <p class="hero-description">
+                        Every bite is 5.5-7 oz of pure bliss! Our cookies are stuffed, filled & topped with 
+                        the most incredible flavors that will make your taste buds dance with joy.
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary hero-btn">Pre-Order Your Bliss! 🚀</button>
+                        <button class="btn-secondary hero-btn">See How It Works ✨</button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="cookie-showcase">
+                        <img src="/placeholder.svg?height=400&width=400" alt="Delicious stuffed cookie" class="cookie-img float-gentle">
+                        <div class="floating-elements">
+                            <div class="floating-element sparkle" style="top: 20%; left: 10%;">✨</div>
+                            <div class="floating-element sparkle" style="top: 60%; right: 15%;">🍪</div>
+                            <div class="floating-element sparkle" style="bottom: 30%; left: 20%;">💕</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Hero Section -->
+    <section class="video-hero-section">
+        <div class="video-container">
+            <video 
+                id="hero-video"
+                class="hero-video"
+                autoplay 
+                loop 
+                muted 
+                playsinline
+                poster="/placeholder.svg?height=600&width=1200"
+            >
+                <source src="/videos/mi-video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-overlay">
+                <div class="video-content">
+                    <h2 class="video-title">Watch the Magic Happen</h2>
+                    <p class="video-subtitle">Every cookie is crafted with love and stuffed with awesomeness</p>
+                    <button id="video-toggle" class="video-control-btn">
+                        <i data-lucide="pause" class="video-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works-section">
+        <div class="container-custom">
+            <div class="section-header">
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-subtitle">From craving to cookie bliss in 3 sweet steps!</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-icon gradient-primary">
+                        <i data-lucide="instagram" class="step-icon-svg"></i>
+                    </div>
+                    <h3 class="step-title">1. Follow & DM</h3>
+                    <p class="step-description">Follow us on Instagram and send us a DM with your cookie cravings!</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon gradient-secondary">
+                        <i data-lucide="chef-hat" class="step-icon-svg"></i>
+                    </div>
+                    <h3 class="step-title">2. We Craft Magic</h3>
+                    <p class="step-description">Our cookie wizards stuff, fill & top your cookies with pure awesomeness!</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon gradient-accent">
+                        <i data-lucide="heart" class="step-icon-svg"></i>
+                    </div>
+                    <h3 class="step-title">3. Pure Bliss</h3>
+                    <p class="step-description">Pick up your 5.5-7 oz cookies and experience cookie heaven!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container-custom">
+            <div class="section-header">
+                <h2 class="section-title">Our Cookie Creations</h2>
+                <p class="section-subtitle">Each cookie is a unique masterpiece - these are just examples of our awesomeness!</p>
+            </div>
+            <div class="products-grid" id="products-grid">
+                <!-- Products will be loaded by JavaScript -->
+            </div>
+            <div class="products-disclaimer">
+                <p class="disclaimer-text">
+                    <i data-lucide="info" class="disclaimer-icon"></i>
+                    These cookies are examples because our cookies are never the same - each one is uniquely crafted with love!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sizes Section -->
+    <section class="sizes-section">
+        <div class="container-custom">
+            <div class="section-header">
+                <h2 class="section-title">Cookie Sizes</h2>
+                <p class="section-subtitle">Choose your level of cookie bliss!</p>
+            </div>
+            <div class="sizes-grid">
+                <div class="size-card">
+                    <div class="size-icon">🍪</div>
+                    <h3 class="size-title">Regular Bliss</h3>
+                    <p class="size-weight">5.5 oz</p>
+                    <p class="size-description">Perfect for a sweet treat that satisfies your cookie cravings!</p>
+                </div>
+                <div class="size-card featured">
+                    <div class="size-badge">Most Popular</div>
+                    <div class="size-icon">🍪🍪</div>
+                    <h3 class="size-title">Ultimate Bliss</h3>
+                    <p class="size-weight">7 oz</p>
+                    <p class="size-description">Maximum awesomeness in every bite - our signature size!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container-custom">
+            <div class="section-header">
+                <h2 class="section-title">Cookie Love Stories</h2>
+                <p class="section-subtitle">What our cookie lovers are saying!</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"These cookies are absolutely incredible! The Boy Howdy cookie changed my life - so much flavor in every bite!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="/placeholder.svg?height=60&width=60" alt="Customer" class="author-avatar">
+                        <div class="author-info">
+                            <h4 class="author-name">Sarah M.</h4>
+                            <p class="author-location">Wichita, KS</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"I'm obsessed with the Venmo Stalker! The Fruity Pebbles combo is genius. Can't wait for my next order!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="/placeholder.svg?height=60&width=60" alt="Customer" class="author-avatar">
+                        <div class="author-info">
+                            <h4 class="author-name">Mike R.</h4>
+                            <p class="author-location">Wichita, KS</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"Fran's cookies are pure magic! The I Luv You Berry Much cookie is my new favorite dessert. Worth every bite!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="/placeholder.svg?height=60&width=60" alt="Customer" class="author-avatar">
+                        <div class="author-info">
+                            <h4 class="author-name">Jessica L.</h4>
+                            <p class="author-location">Wichita, KS</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-custom">
+            <div class="footer-content">
+                <!-- Brand -->
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-circle gradient-primary">
+                            <i data-lucide="heart" class="logo-heart"></i>
+                        </div>
+                        <div class="footer-logo-text">
+                            <h3 class="footer-logo-title">FROBANDYCAKES COOKEZ</h3>
+                            <p class="footer-logo-subtitle">Stuffed with Awesomeness</p>
+                        </div>
+                    </div>
+                    <p class="footer-description">
+                        Wichita's sweetest luxury cookie boutique! We craft cookies stuffed, filled & topped with pure
+                        awesomeness. Every bite is 5.5-7 oz of pure bliss! 🍪✨
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/frobandycakes?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="social-link gradient-primary">
+                            <i data-lucide="instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com/FrobandyCAKES" target="_blank" rel="noopener noreferrer" class="social-link gradient-secondary">
+                            <i data-lucide="facebook"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h4 class="footer-section-title">Sweet Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html" class="footer-link">About Us</a></li>
+                        <li><a href="#how-it-works" class="footer-link">How It Works</a></li>
+                        <li><a href="#" class="footer-link">Pre-Order</a></li>
+                        <li><a href="contact.html" class="footer-link">Contact</a></li>
+                        <li><a href="#" class="footer-link">Cookie Love</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="footer-section">
+                    <h4 class="footer-section-title">Get In Touch</h4>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i data-lucide="map-pin" class="contact-icon"></i>
+                            <span>Wichita, Kansas</span>
+                        </div>
+                        <div class="contact-item">
+                            <i data-lucide="mail" class="contact-icon"></i>
+                            <span>frobandycakes@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    © 2024 FROBANDYCAKES COOKEZ. All rights reserved. Made with 💕 and lots of cookies in Wichita, Kansas.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

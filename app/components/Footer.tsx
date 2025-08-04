@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Instagram, Facebook, Mail, MapPin, Heart } from "lucide-react"
+import { Instagram, Facebook, Mail, Phone, MapPin, Heart } from "lucide-react"
 
 export default function Footer() {
   return (
@@ -21,8 +21,8 @@ export default function Footer() {
                   <Heart className="w-6 h-6 text-white fill-current" />
                 </div>
                 <div>
-                  <h3 className="font-oswald text-2xl md:text-3xl font-bold text-primary">FROBANDYCAKES COOKEZ</h3>
-                  <p className="cursive-accent text-gray-400 text-sm">Stuffed with Awesomeness</p>
+                  <h3 className="font-dancing text-3xl font-bold text-primary">Frobandy Cakes</h3>
+                  <p className="text-gray-400 text-sm">Stuffed with Awesomeness</p>
                 </div>
               </div>
               <p className="text-gray-300 leading-relaxed max-w-md">
@@ -34,18 +34,14 @@ export default function Footer() {
             <div className="flex space-x-4">
               <motion.a
                 whileHover={{ scale: 1.1 }}
-                href="https://www.instagram.com/frobandycakes?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#"
                 className="w-12 h-12 gradient-primary rounded-full flex items-center justify-center hover:opacity-80 transition-opacity"
               >
                 <Instagram className="w-5 h-5" />
               </motion.a>
               <motion.a
                 whileHover={{ scale: 1.1 }}
-                href="https://www.facebook.com/FrobandyCAKES"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#"
                 className="w-12 h-12 gradient-secondary rounded-full flex items-center justify-center hover:opacity-80 transition-opacity"
               >
                 <Facebook className="w-5 h-5 text-gray-900" />
@@ -55,7 +51,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-oswald font-bold mb-6 text-lg">Sweet Links</h4>
+            <h4 className="font-bold mb-6 text-lg">Sweet Links</h4>
             <ul className="space-y-3">
               {["About Us", "How It Works", "Pre-Order", "Contact", "Cookie Love"].map((link) => (
                 <li key={link}>
@@ -70,15 +66,19 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-oswald font-bold mb-6 text-lg">Get In Touch</h4>
+            <h4 className="font-bold mb-6 text-lg">Get In Touch</h4>
             <div className="space-y-4">
               <div className="flex items-center">
                 <MapPin className="w-5 h-5 text-primary mr-3 flex-shrink-0" />
                 <span className="text-gray-300">Wichita, Kansas</span>
               </div>
               <div className="flex items-center">
+                <Phone className="w-5 h-5 text-secondary mr-3 flex-shrink-0" />
+                <span className="text-gray-300">(316) 555-CAKE</span>
+              </div>
+              <div className="flex items-center">
                 <Mail className="w-5 h-5 text-accent mr-3 flex-shrink-0" />
-                <span className="text-gray-300">frobandycakes@gmail.com</span>
+                <span className="text-gray-300">hello@frobandycakes.com</span>
               </div>
             </div>
           </div>
@@ -86,7 +86,7 @@ export default function Footer() {
 
         <div className="border-t border-gray-700 mt-12 pt-8 text-center">
           <p className="text-gray-400">
-            © 2024 FROBANDYCAKES COOKEZ. All rights reserved. Made with 💕 and lots of cookies in Wichita, Kansas.
+            © 2024 Frobandy Cakes. All rights reserved. Made with 💕 and lots of cookies in Wichita, Kansas.
           </p>
         </div>
       </div>

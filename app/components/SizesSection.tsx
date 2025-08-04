@@ -46,10 +46,10 @@ export default function SizesSection() {
         >
           <div className="inline-flex items-center space-x-2 mb-4">
             <Crown className="w-6 h-6 text-accent" />
-            <span className="cursive-accent text-accent">Choose Your Bliss</span>
+            <span className="font-dancing text-2xl text-accent">Choose Your Bliss</span>
             <Crown className="w-6 h-6 text-accent" />
           </div>
-          <h2 className="heading-secondary mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Perfect <span className="text-gradient-primary">Sizes</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
@@ -84,28 +84,22 @@ export default function SizesSection() {
                 </div>
 
                 <div className="text-center mb-6">
-                  <h3 className="font-oswald text-xl sm:text-2xl font-bold mb-2 text-gray-800 leading-tight">
-                    {size.name}
-                  </h3>
-                  <p className={`text-${size.color} font-bold text-lg sm:text-xl`}>{size.weight}</p>
+                  <h3 className="text-2xl font-bold mb-2 text-gray-800">{size.name}</h3>
+                  <p className={`text-${size.color} font-bold text-xl`}>{size.weight}</p>
                 </div>
 
-                <p className="text-gray-600 text-center mb-6 leading-relaxed text-sm sm:text-base px-2">
-                  {size.description}
-                </p>
+                <p className="text-gray-600 text-center mb-6 leading-relaxed">{size.description}</p>
 
                 <div className="space-y-3 mb-8">
                   {size.features.map((feature, featureIndex) => (
                     <div key={featureIndex} className="flex items-center justify-center">
-                      <div className={`w-2 h-2 bg-${size.color} rounded-full mr-3 flex-shrink-0`} />
-                      <span className="text-gray-600 text-xs sm:text-sm text-center">{feature}</span>
+                      <div className={`w-2 h-2 bg-${size.color} rounded-full mr-3`} />
+                      <span className="text-gray-600 text-sm">{feature}</span>
                     </div>
                   ))}
                 </div>
 
-                <button
-                  className={`w-full btn-${size.color} group-hover:scale-105 transition-transform text-sm sm:text-base py-3 sm:py-4`}
-                >
+                <button className={`w-full btn-${size.color} group-hover:scale-105 transition-transform`}>
                   Choose This Size! 🍪
                 </button>
               </div>
