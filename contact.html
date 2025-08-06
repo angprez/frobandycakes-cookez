@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - FROBANDYCAKES COOKEZ</title>
-    <meta name="description" content="Get in touch with FROBANDYCAKES COOKEZ! Follow us on Instagram, send us a message, or find us in Wichita, Kansas.">
+    <title>Contact Us - Frobandy Cakes</title>
+    <meta name="description" content="Get in touch with Frobandy Cakes! Follow us on Instagram, send us a message, or find us in Wichita, Kansas.">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
@@ -19,7 +19,7 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav id="navigation" class="nav-container">
+    <nav id="navigation" class="nav-fixed">
         <div class="container-custom">
             <div class="nav-content">
                 <!-- Logo -->
@@ -31,7 +31,7 @@
                         <div class="sparkle-dot"></div>
                     </div>
                     <div class="logo-text">
-                        <h1 class="logo-title">FROBANDYCAKES COOKEZ</h1>
+                        <h1 class="logo-title">Frobandy Cakes</h1>
                         <p class="logo-subtitle">Stuffed with Awesomeness</p>
                     </div>
                 </div>
@@ -69,6 +69,11 @@
     <section class="contact-hero-section">
         <div class="container-custom">
             <div class="contact-hero-content">
+                <div class="hero-badge">
+                    <i data-lucide="message-circle" class="badge-icon"></i>
+                    <span>Get In Touch</span>
+                    <i data-lucide="heart" class="badge-icon"></i>
+                </div>
                 <h1 class="contact-hero-title">Let's Get Sweet Together!</h1>
                 <p class="contact-hero-subtitle">Ready to order some cookie magic? We'd love to hear from you!</p>
             </div>
@@ -81,43 +86,91 @@
             <div class="contact-methods-grid">
                 <!-- Instagram -->
                 <div class="contact-method-card featured">
+                    <div class="method-badge">Most Popular</div>
                     <div class="contact-method-icon gradient-primary">
-                        <i data-lucide="instagram" class="contact-icon-svg"></i>
+                        <i data-lucide="instagram" class="method-icon"></i>
                     </div>
                     <h3 class="contact-method-title">Instagram DM</h3>
                     <p class="contact-method-description">
                         The fastest way to place your order! Follow us and send a DM with your cookie dreams.
                     </p>
-                    <a href="https://www.instagram.com/frobandycakes?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="btn-primary">
-                        Message Us on Instagram 📸
+                    <div class="method-features">
+                        <div class="feature-item">
+                            <i data-lucide="zap" class="feature-icon"></i>
+                            <span>Instant Response</span>
+                        </div>
+                        <div class="feature-item">
+                            <i data-lucide="image" class="feature-icon"></i>
+                            <span>See Latest Creations</span>
+                        </div>
+                        <div class="feature-item">
+                            <i data-lucide="users" class="feature-icon"></i>
+                            <span>Join Our Community</span>
+                        </div>
+                    </div>
+                    <a href="https://www.instagram.com/frobandycakes?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="btn-primary method-btn">
+                        <i data-lucide="instagram" class="btn-icon"></i>
+                        Message Us on Instagram
                     </a>
                 </div>
 
                 <!-- Email -->
                 <div class="contact-method-card">
                     <div class="contact-method-icon gradient-accent">
-                        <i data-lucide="mail" class="contact-icon-svg"></i>
+                        <i data-lucide="mail" class="method-icon"></i>
                     </div>
                     <h3 class="contact-method-title">Email Us</h3>
                     <p class="contact-method-description">
                         Have questions or special requests? Drop us an email and we'll get back to you soon!
                     </p>
-                    <a href="mailto:frobandycakes@gmail.com" class="btn-secondary">
-                        Send Email 📧
+                    <div class="method-features">
+                        <div class="feature-item">
+                            <i data-lucide="clock" class="feature-icon"></i>
+                            <span>24-48 Hour Response</span>
+                        </div>
+                        <div class="feature-item">
+                            <i data-lucide="file-text" class="feature-icon"></i>
+                            <span>Detailed Inquiries</span>
+                        </div>
+                        <div class="feature-item">
+                            <i data-lucide="star" class="feature-icon"></i>
+                            <span>Special Requests</span>
+                        </div>
+                    </div>
+                    <a href="mailto:frobandycakes@gmail.com" class="btn-secondary method-btn">
+                        <i data-lucide="mail" class="btn-icon"></i>
+                        Send Email
                     </a>
                 </div>
 
                 <!-- Location -->
                 <div class="contact-method-card">
                     <div class="contact-method-icon gradient-secondary">
-                        <i data-lucide="map-pin" class="contact-icon-svg"></i>
+                        <i data-lucide="map-pin" class="method-icon"></i>
                     </div>
                     <h3 class="contact-method-title">Find Us</h3>
                     <p class="contact-method-description">
                         We're proudly based in Wichita, Kansas, spreading cookie joy throughout the community!
                     </p>
+                    <div class="method-features">
+                        <div class="feature-item">
+                            <i data-lucide="home" class="feature-icon"></i>
+                            <span>Local Wichita Business</span>
+                        </div>
+                        <div class="feature-item">
+                            <i data-lucide="truck" class="feature-icon"></i>
+                            <span>Local Delivery Available</span>
+                        </div>
+                        <div class="feature-item">
+                            <i data-lucide="heart" class="feature-icon"></i>
+                            <span>Community Focused</span>
+                        </div>
+                    </div>
                     <div class="location-info">
-                        <p class="location-text">📍 Wichita, Kansas</p>
+                        <div class="location-item">
+                            <i data-lucide="map-pin" class="location-icon"></i>
+                            <span class="location-text">Wichita, Kansas</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -128,25 +181,69 @@
     <section class="faq-section">
         <div class="container-custom">
             <div class="section-header">
-                <h2 class="section-title">Frequently Asked Questions</h2>
+                <h2 class="section-title">Frequently Asked <span class="text-gradient-primary">Questions</span></h2>
                 <p class="section-subtitle">Everything you need to know about our cookie magic!</p>
             </div>
-            <div class="faq-grid">
+
+            <div class="faq-container">
                 <div class="faq-item">
-                    <h3 class="faq-question">How do I place an order?</h3>
-                    <p class="faq-answer">Simply follow us on Instagram and send us a DM with your cookie preferences! We'll take care of the rest.</p>
+                    <button class="faq-question" data-faq="1">
+                        <span>How do I place an order?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-answer" id="faq-1">
+                        <p>Simply follow us on Instagram and send us a DM with your cookie preferences! We'll take care of the rest and guide you through our simple ordering process.</p>
+                    </div>
                 </div>
+
                 <div class="faq-item">
-                    <h3 class="faq-question">How much do cookies weigh?</h3>
-                    <p class="faq-answer">Our cookies are substantial! Each one weighs between 5.5-7 oz - that's a lot of deliciousness in every bite!</p>
+                    <button class="faq-question" data-faq="2">
+                        <span>How much do cookies weigh?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-answer" id="faq-2">
+                        <p>Our cookies are substantial! Each one weighs between 5.5-7 oz - that's a lot of deliciousness in every bite! We have different sizes available to satisfy every craving.</p>
+                    </div>
                 </div>
+
                 <div class="faq-item">
-                    <h3 class="faq-question">Are the cookie flavors always the same?</h3>
-                    <p class="faq-answer">Nope! Each cookie is uniquely crafted. While we have signature styles, every cookie is a little different - that's part of the magic!</p>
+                    <button class="faq-question" data-faq="3">
+                        <span>Are the cookie flavors always the same?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-answer" id="faq-3">
+                        <p>Nope! Each cookie is uniquely crafted. While we have signature styles, every cookie is a little different - that's part of the magic! We also rotate seasonal flavors monthly.</p>
+                    </div>
                 </div>
+
                 <div class="faq-item">
-                    <h3 class="faq-question">How far in advance should I order?</h3>
-                    <p class="faq-answer">We recommend ordering at least 24-48 hours in advance to ensure we can craft your perfect cookies with love and care!</p>
+                    <button class="faq-question" data-faq="4">
+                        <span>How far in advance should I order?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-answer" id="faq-4">
+                        <p>We recommend ordering at least 24-48 hours in advance to ensure we can craft your perfect cookies with love and care! For special occasions, please give us more notice.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" data-faq="5">
+                        <span>Do you ship nationwide?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-answer" id="faq-5">
+                        <p>Yes! We ship nationwide every Monday after pre-orders. Local Wichita customers can enjoy Sunday delivery in limited time slots for the freshest experience possible.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" data-faq="6">
+                        <span>What makes your cookies special?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-answer" id="faq-6">
+                        <p>Every cookie is handcrafted with premium ingredients, stuffed with love, and topped with magic! We use only the finest ingredients and each cookie is made fresh to order with unique flavor combinations.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -156,18 +253,57 @@
     <section class="social-media-section">
         <div class="container-custom">
             <div class="social-media-content">
-                <h2 class="social-media-title">Follow Our Cookie Journey!</h2>
-                <p class="social-media-description">
-                    Stay updated with our latest cookie creations, behind-the-scenes magic, and special announcements!
-                </p>
-                <div class="social-media-buttons">
+                <div class="social-header">
+                    <h2 class="social-title">Follow Our Cookie Journey!</h2>
+                    <p class="social-description">
+                        Stay updated with our latest cookie creations, behind-the-scenes magic, and special announcements!
+                    </p>
+                </div>
+                
+                <div class="social-stats">
+                    <div class="stat-item">
+                        <div class="stat-icon gradient-primary">
+                            <i data-lucide="instagram" class="icon"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-number">2.5K+</div>
+                            <div class="stat-label">Followers</div>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon gradient-secondary">
+                            <i data-lucide="facebook" class="icon"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-number">1.2K+</div>
+                            <div class="stat-label">Likes</div>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon gradient-accent">
+                            <i data-lucide="heart" class="icon"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Happy Customers</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="social-buttons">
                     <a href="https://www.instagram.com/frobandycakes?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="social-btn instagram">
-                        <i data-lucide="instagram"></i>
-                        <span>Follow on Instagram</span>
+                        <i data-lucide="instagram" class="btn-icon"></i>
+                        <div class="btn-content">
+                            <span class="btn-title">Follow on Instagram</span>
+                            <span class="btn-subtitle">Daily cookie updates</span>
+                        </div>
                     </a>
                     <a href="https://www.facebook.com/FrobandyCAKES" target="_blank" rel="noopener noreferrer" class="social-btn facebook">
-                        <i data-lucide="facebook"></i>
-                        <span>Like on Facebook</span>
+                        <i data-lucide="facebook" class="btn-icon"></i>
+                        <div class="btn-content">
+                            <span class="btn-title">Like on Facebook</span>
+                            <span class="btn-subtitle">Community updates</span>
+                        </div>
                     </a>
                 </div>
             </div>
@@ -185,7 +321,7 @@
                             <i data-lucide="heart" class="logo-heart"></i>
                         </div>
                         <div class="footer-logo-text">
-                            <h3 class="footer-logo-title">FROBANDYCAKES COOKEZ</h3>
+                            <h3 class="footer-logo-title">Frobandy Cakes</h3>
                             <p class="footer-logo-subtitle">Stuffed with Awesomeness</p>
                         </div>
                     </div>
@@ -233,7 +369,7 @@
 
             <div class="footer-bottom">
                 <p class="footer-copyright">
-                    © 2024 FROBANDYCAKES COOKEZ. All rights reserved. Made with 💕 and lots of cookies in Wichita, Kansas.
+                    © 2024 Frobandy Cakes. All rights reserved. Made with 💕 and lots of cookies in Wichita, Kansas.
                 </p>
             </div>
         </div>
