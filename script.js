@@ -3,415 +3,507 @@ import lucide from "lucide"
 
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize all components
+    initializeNavigation();
+    initializeHeroVideo();
+    initializeFlavorCarousel();
+    initializeFAQ();
+    initializeScrollAnimations();
+    initializeExternalLinks();
+    initializeLazyLoading();
+    
     // Initialize Lucide icons
     if (typeof lucide !== 'undefined') {
         lucide.createIcons();
     }
-
-    // Initialize all functionality
-    initNavigation();
-    initHeroVideo();
-    initFlavorCarousel();
-    initFAQ();
-    initScrollAnimations();
-    initSmoothScrolling();
 });
 
 // Navigation functionality
-function initNavigation() {
-    const nav = document.getElementById('navigation');
+function initializeNavigation() {
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     const menuIcon = mobileMenuBtn?.querySelector('.menu-icon');
     const closeIcon = mobileMenuBtn?.querySelector('.close-icon');
-
-    // Handle scroll effect on navigation
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            nav?.classList.add('scrolled');
-        } else {
-            nav?.classList.remove('scrolled');
-        }
-    });
-
-    // Mobile menu toggle
-    mobileMenuBtn?.addEventListener('click', () => {
-        const isOpen = !mobileMenu?.classList.contains('hidden');
+    const navLinks = document.querySelectorAll('.mobile-nav-link');
+    
+    if (!mobileMenuBtn || !mobileMenu) return;
+    
+    // Toggle mobile menu
+    mobileMenuBtn.addEventListener('click', function() {
+        const isOpen = mobileMenu.classList.contains('show');
         
         if (isOpen) {
-            mobileMenu?.classList.add('hidden');
-            menuIcon?.classList.remove('hidden');
-            closeIcon?.classList.add('hidden');
+            closeMobileMenu();
         } else {
-            mobileMenu?.classList.remove('hidden');
-            menuIcon?.classList.add('hidden');
-            closeIcon?.classList.remove('hidden');
+            openMobileMenu();
         }
     });
-
-    // Close mobile menu when clicking on links
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-    mobileNavLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu?.classList.add('hidden');
-            menuIcon?.classList.remove('hidden');
-            closeIcon?.classList.add('hidden');
+    
+    // Close menu when clicking on links
+    navLinks.forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+            closeMobileMenu();
+        }
+    });
+    
+    // Close menu on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeMobileMenu();
+        }
+    });
+    
+    function openMobileMenu() {
+        mobileMenu.classList.remove('hidden');
+        setTimeout(() => {
+            mobileMenu.classList.add('show');
+        }, 10);
+        
+        menuIcon?.classList.add('hidden');
+        closeIcon?.classList.remove('hidden');
+        
+        // Prevent body scroll
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeMobileMenu() {
+        mobileMenu.classList.remove('show');
+        setTimeout(() => {
+            mobileMenu.classList.add('hidden');
+        }, 300);
+        
+        menuIcon?.classList.remove('hidden');
+        closeIcon?.classList.add('hidden');
+        
+        // Restore body scroll
+        document.body.style.overflow = '';
+    }
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                const offsetTop = target.offsetTop - 80; // Account for fixed nav
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+                closeMobileMenu();
+            }
         });
     });
-
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', (event) => {
-        if (nav && !nav.contains(event.target) && !mobileMenu?.classList.contains('hidden')) {
-            mobileMenu?.classList.add('hidden');
-            menuIcon?.classList.remove('hidden');
-            closeIcon?.classList.add('hidden');
+    
+    // Navigation scroll effect
+    let lastScrollY = window.scrollY;
+    const navigation = document.getElementById('navigation');
+    
+    window.addEventListener('scroll', debounce(function() {
+        const currentScrollY = window.scrollY;
+        
+        if (navigation) {
+            if (currentScrollY > 100) {
+                navigation.style.background = 'rgba(255, 255, 255, 0.98)';
+                navigation.style.backdropFilter = 'blur(20px)';
+                navigation.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                navigation.style.background = 'rgba(255, 255, 255, 0.95)';
+                navigation.style.backdropFilter = 'blur(10px)';
+                navigation.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
+            }
         }
-    });
+        
+        lastScrollY = currentScrollY;
+    }, 10));
 }
 
 // Hero video functionality
-function initHeroVideo() {
-    const playBtn = document.getElementById('play-video-btn');
+function initializeHeroVideo() {
     const heroImage = document.getElementById('hero-image');
     const heroVideo = document.getElementById('hero-video');
-    const videoOverlay = document.querySelector('.video-overlay');
-
-    if (!playBtn || !heroImage || !heroVideo) return;
-
-    playBtn.addEventListener('click', () => {
-        heroImage.classList.add('hidden');
+    const playBtn = document.getElementById('play-video-btn');
+    const videoContainer = document.getElementById('hero-video-container');
+    
+    if (!heroImage || !heroVideo || !playBtn) return;
+    
+    playBtn.addEventListener('click', function() {
+        // Hide image and show video
+        heroImage.style.display = 'none';
         heroVideo.classList.remove('hidden');
-        videoOverlay.style.display = 'none';
-        heroVideo.play();
+        playBtn.style.display = 'none';
+        
+        // Play video
+        heroVideo.play().catch(error => {
+            console.log('Video play failed:', error);
+            // Fallback: show image again
+            heroImage.style.display = 'block';
+            heroVideo.classList.add('hidden');
+            playBtn.style.display = 'flex';
+        });
     });
-
-    // Handle video events
-    heroVideo.addEventListener('ended', () => {
-        heroImage.classList.remove('hidden');
+    
+    // Video ended event
+    heroVideo.addEventListener('ended', function() {
+        // Show image and hide video
+        heroImage.style.display = 'block';
         heroVideo.classList.add('hidden');
-        videoOverlay.style.display = 'flex';
+        playBtn.style.display = 'flex';
+    });
+    
+    // Video error handling
+    heroVideo.addEventListener('error', function() {
+        console.log('Video loading error');
+        heroImage.style.display = 'block';
+        heroVideo.classList.add('hidden');
+        playBtn.style.display = 'flex';
     });
 }
 
 // Flavor carousel functionality
-function initFlavorCarousel() {
+function initializeFlavorCarousel() {
     const carousel = document.getElementById('flavor-carousel');
     const prevBtn = document.getElementById('prev-flavor');
     const nextBtn = document.getElementById('next-flavor');
     const dotsContainer = document.getElementById('flavor-dots');
-
+    
     if (!carousel) return;
-
+    
+    // Sample flavor data
     const flavors = [
         {
-            name: "Chocolate Chip Cookie Dough Explosion",
-            description: "Loaded with premium cookie dough chunks and Belgian chocolate chips - it's like eating raw cookie dough but better! 🍪",
-            image: "/placeholder.svg?height=400&width=600",
-            month: "January",
-            emoji: "🍫"
+            title: "Chocolate Chip Cookie Dough",
+            description: "Classic cookie dough stuffed with premium chocolate chips and topped with cookie crumbles.",
+            tags: ["Chocolate", "Cookie Dough", "Classic"],
+            image: "/placeholder.svg?height=200&width=300&text=Cookie+Dough"
         },
         {
-            name: "Strawberry Cheesecake Dream",
-            description: "Creamy cheesecake filling swirled with fresh strawberry goodness - summer vibes in every bite! 🍓",
-            image: "/placeholder.svg?height=400&width=600",
-            month: "February",
-            emoji: "🍓"
+            title: "Strawberry Cheesecake Bliss",
+            description: "Creamy cheesecake filling with fresh strawberries and graham cracker crust pieces.",
+            tags: ["Strawberry", "Cheesecake", "Fruity"],
+            image: "/placeholder.svg?height=200&width=300&text=Strawberry+Cheesecake"
         },
         {
-            name: "Salted Caramel Pretzel Crunch",
-            description: "Sweet meets salty perfection with gooey caramel and crunchy pretzel pieces - absolutely addictive! 🥨",
-            image: "/placeholder.svg?height=400&width=600",
-            month: "March",
-            emoji: "🥨"
+            title: "Salted Caramel Pretzel",
+            description: "Rich caramel center with crushed pretzels and a sprinkle of sea salt.",
+            tags: ["Caramel", "Salty", "Pretzel"],
+            image: "/placeholder.svg?height=200&width=300&text=Salted+Caramel"
         },
         {
-            name: "Birthday Cake Bonanza",
-            description: "It's a party in your mouth! Funfetti cookie with vanilla buttercream and rainbow sprinkles! 🎂",
-            image: "/placeholder.svg?height=400&width=600",
-            month: "April",
-            emoji: "🎂"
+            title: "Birthday Cake Explosion",
+            description: "Funfetti cake batter with rainbow sprinkles and vanilla buttercream frosting.",
+            tags: ["Birthday", "Funfetti", "Vanilla"],
+            image: "/placeholder.svg?height=200&width=300&text=Birthday+Cake"
+        },
+        {
+            title: "Peanut Butter Cup Paradise",
+            description: "Creamy peanut butter filling with chocolate chunks and peanut butter cup pieces.",
+            tags: ["Peanut Butter", "Chocolate", "Nutty"],
+            image: "/placeholder.svg?height=200&width=300&text=Peanut+Butter"
+        },
+        {
+            title: "Lemon Raspberry Tart",
+            description: "Tangy lemon curd with fresh raspberries and shortbread cookie crumbles.",
+            tags: ["Lemon", "Raspberry", "Tart"],
+            image: "/placeholder.svg?height=200&width=300&text=Lemon+Raspberry"
         }
     ];
-
+    
     let currentIndex = 0;
     let autoPlayInterval;
-
-    // Create flavor cards
-    function createFlavorCards() {
+    
+    // Generate flavor cards
+    function generateFlavorCards() {
         carousel.innerHTML = '';
         flavors.forEach((flavor, index) => {
             const card = document.createElement('div');
             card.className = 'flavor-card';
-            card.style.transform = `translateX(${index * 100}%)`;
-            
             card.innerHTML = `
-                <div class="flavor-image">
-                    <img src="${flavor.image}" alt="${flavor.name}" class="flavor-img">
-                    <div class="flavor-emoji">${flavor.emoji}</div>
-                </div>
+                <img src="${flavor.image}" alt="${flavor.title}" class="flavor-image" loading="lazy">
                 <div class="flavor-content">
-                    <div class="flavor-badge">
-                        <div style="width: 0.75rem; height: 0.75rem; background: var(--primary); border-radius: 50%;"></div>
-                        <span>${flavor.month} Special</span>
-                    </div>
-                    <h3 class="flavor-title">${flavor.name}</h3>
+                    <h3 class="flavor-title">${flavor.title}</h3>
                     <p class="flavor-description">${flavor.description}</p>
-                    <button class="btn-primary flavor-btn sweet-bounce">Pre-Order This Flavor! 🎉</button>
+                    <div class="flavor-tags">
+                        ${flavor.tags.map(tag => `<span class="flavor-tag">${tag}</span>`).join('')}
+                    </div>
                 </div>
             `;
-            
             carousel.appendChild(card);
         });
     }
-
-    // Create dots
-    function createDots() {
+    
+    // Generate dots
+    function generateDots() {
         if (!dotsContainer) return;
         
         dotsContainer.innerHTML = '';
         flavors.forEach((_, index) => {
-            const dot = document.createElement('div');
-            dot.className = `dot ${index === 0 ? 'active' : ''}`;
+            const dot = document.createElement('button');
+            dot.className = `carousel-dot ${index === 0 ? 'active' : ''}`;
+            dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
             dot.addEventListener('click', () => goToSlide(index));
             dotsContainer.appendChild(dot);
         });
     }
-
+    
     // Go to specific slide
     function goToSlide(index) {
         currentIndex = index;
-        updateCarousel();
+        const scrollAmount = carousel.children[0]?.offsetWidth || 300;
+        carousel.scrollTo({
+            left: scrollAmount * index,
+            behavior: 'smooth'
+        });
         updateDots();
         resetAutoPlay();
     }
-
-    // Update carousel position
-    function updateCarousel() {
-        const cards = carousel.querySelectorAll('.flavor-card');
-        cards.forEach((card, index) => {
-            card.style.transform = `translateX(${(index - currentIndex) * 100}%)`;
-        });
-    }
-
+    
     // Update dots
     function updateDots() {
         if (!dotsContainer) return;
         
-        const dots = dotsContainer.querySelectorAll('.dot');
+        const dots = dotsContainer.querySelectorAll('.carousel-dot');
         dots.forEach((dot, index) => {
             dot.classList.toggle('active', index === currentIndex);
         });
     }
-
+    
     // Next slide
     function nextSlide() {
         currentIndex = (currentIndex + 1) % flavors.length;
-        updateCarousel();
-        updateDots();
+        goToSlide(currentIndex);
     }
-
+    
     // Previous slide
     function prevSlide() {
         currentIndex = (currentIndex - 1 + flavors.length) % flavors.length;
-        updateCarousel();
-        updateDots();
+        goToSlide(currentIndex);
     }
-
+    
     // Auto play
     function startAutoPlay() {
-        autoPlayInterval = setInterval(nextSlide, 4000);
+        autoPlayInterval = setInterval(nextSlide, 5000);
     }
-
+    
+    function stopAutoPlay() {
+        if (autoPlayInterval) {
+            clearInterval(autoPlayInterval);
+        }
+    }
+    
     function resetAutoPlay() {
-        clearInterval(autoPlayInterval);
+        stopAutoPlay();
         startAutoPlay();
     }
-
+    
     // Event listeners
-    nextBtn?.addEventListener('click', () => {
-        nextSlide();
-        resetAutoPlay();
-    });
-
-    prevBtn?.addEventListener('click', () => {
-        prevSlide();
-        resetAutoPlay();
-    });
-
-    // Initialize
-    createFlavorCards();
-    createDots();
-    startAutoPlay();
-
+    if (prevBtn) {
+        prevBtn.addEventListener('click', prevSlide);
+    }
+    
+    if (nextBtn) {
+        nextBtn.addEventListener('click', nextSlide);
+    }
+    
     // Pause auto play on hover
-    carousel.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
+    carousel.addEventListener('mouseenter', stopAutoPlay);
     carousel.addEventListener('mouseleave', startAutoPlay);
+    
+    // Touch/swipe support
+    let startX = 0;
+    let scrollLeft = 0;
+    let isDown = false;
+    
+    carousel.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - carousel.offsetLeft;
+        scrollLeft = carousel.scrollLeft;
+        stopAutoPlay();
+    });
+    
+    carousel.addEventListener('mouseleave', () => {
+        isDown = false;
+        startAutoPlay();
+    });
+    
+    carousel.addEventListener('mouseup', () => {
+        isDown = false;
+        startAutoPlay();
+    });
+    
+    carousel.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - carousel.offsetLeft;
+        const walk = (x - startX) * 2;
+        carousel.scrollLeft = scrollLeft - walk;
+    });
+    
+    // Touch events for mobile
+    carousel.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].pageX;
+        stopAutoPlay();
+    });
+    
+    carousel.addEventListener('touchmove', (e) => {
+        if (!startX) return;
+        const x = e.touches[0].pageX;
+        const diff = startX - x;
+        
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) {
+                nextSlide();
+            } else {
+                prevSlide();
+            }
+            startX = 0;
+        }
+    });
+    
+    carousel.addEventListener('touchend', () => {
+        startX = 0;
+        startAutoPlay();
+    });
+    
+    // Initialize
+    generateFlavorCards();
+    generateDots();
+    startAutoPlay();
+    
+    // Update current slide based on scroll position
+    carousel.addEventListener('scroll', debounce(() => {
+        const scrollAmount = carousel.children[0]?.offsetWidth || 300;
+        const newIndex = Math.round(carousel.scrollLeft / scrollAmount);
+        if (newIndex !== currentIndex) {
+            currentIndex = newIndex;
+            updateDots();
+        }
+    }, 100));
 }
 
 // FAQ functionality
-function initFAQ() {
+function initializeFAQ() {
     const faqQuestions = document.querySelectorAll('.faq-question');
     
     faqQuestions.forEach(question => {
-        question.addEventListener('click', () => {
-            const faqId = question.getAttribute('data-faq');
+        question.addEventListener('click', function() {
+            const faqId = this.getAttribute('data-faq');
             const answer = document.getElementById(`faq-${faqId}`);
-            const icon = question.querySelector('.faq-icon');
+            const isActive = this.classList.contains('active');
             
             // Close all other FAQs
-            faqQuestions.forEach(otherQuestion => {
-                if (otherQuestion !== question) {
-                    otherQuestion.classList.remove('active');
-                    const otherId = otherQuestion.getAttribute('data-faq');
+            faqQuestions.forEach(q => {
+                if (q !== this) {
+                    q.classList.remove('active');
+                    const otherId = q.getAttribute('data-faq');
                     const otherAnswer = document.getElementById(`faq-${otherId}`);
-                    otherAnswer?.classList.remove('active');
+                    if (otherAnswer) {
+                        otherAnswer.classList.remove('show');
+                    }
                 }
             });
             
             // Toggle current FAQ
-            question.classList.toggle('active');
-            answer?.classList.toggle('active');
+            if (isActive) {
+                this.classList.remove('active');
+                answer?.classList.remove('show');
+            } else {
+                this.classList.add('active');
+                answer?.classList.add('show');
+            }
         });
     });
 }
 
 // Scroll animations
-function initScrollAnimations() {
+function initializeScrollAnimations() {
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
-
+    
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in-up');
+                entry.target.classList.add('animated');
             }
         });
     }, observerOptions);
-
-    // Observe elements that should animate on scroll
-    const animateElements = document.querySelectorAll(
-        '.step-card, .testimonial-card, .size-card, .value-card, .contact-method-card, .story-card'
-    );
     
-    animateElements.forEach(el => {
+    // Observe elements for animation
+    const animateElements = document.querySelectorAll(`
+        .step-card,
+        .size-card,
+        .flavor-card,
+        .testimonial-card,
+        .value-card,
+        .contact-method-card,
+        .story-card,
+        .faq-item
+    `);
+    
+    animateElements.forEach((el, index) => {
+        el.classList.add('animate-on-scroll');
+        el.style.animationDelay = `${index * 0.1}s`;
         observer.observe(el);
     });
 }
 
-// Smooth scrolling for anchor links
-function initSmoothScrolling() {
-    const links = document.querySelectorAll('a[href^="#"]');
+// External link tracking
+function initializeExternalLinks() {
+    const externalLinks = document.querySelectorAll('a[href^="http"], a[href^="mailto:"]');
     
-    links.forEach(link => {
+    externalLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
             
-            // Skip if it's just "#"
-            if (href === '#') return;
-            
-            const target = document.querySelector(href);
-            if (target) {
-                e.preventDefault();
-                
-                const offsetTop = target.offsetTop - 80; // Account for fixed header
-                
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
+            // Track external link clicks
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'click', {
+                    event_category: 'external_link',
+                    event_label: href
                 });
+            }
+            
+            // Add loading state for Instagram links
+            if (href.includes('instagram.com')) {
+                const originalText = this.textContent;
+                this.textContent = 'Opening Instagram...';
+                
+                setTimeout(() => {
+                    this.textContent = originalText;
+                }, 2000);
             }
         });
     });
 }
 
-// Handle external links
-function handleExternalLinks() {
-    const externalLinks = document.querySelectorAll('a[target="_blank"]');
+// Lazy loading for images
+function initializeLazyLoading() {
+    const images = document.querySelectorAll('img[loading="lazy"]');
     
-    externalLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            // Add analytics tracking here if needed
-            console.log('External link clicked:', this.href);
-        });
-    });
-}
-
-// Handle form submissions (if any forms are added later)
-function handleFormSubmissions() {
-    const forms = document.querySelectorAll('form');
-    
-    forms.forEach(form => {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Add form handling logic here
-            console.log('Form submitted:', this);
-            
-            // Show success message
-            const successMessage = document.createElement('div');
-            successMessage.className = 'success-message';
-            successMessage.textContent = 'Thank you! We\'ll get back to you soon! 🍪';
-            successMessage.style.cssText = `
-                background: var(--secondary);
-                color: var(--gray-900);
-                padding: 1rem;
-                border-radius: 0.5rem;
-                margin-top: 1rem;
-                text-align: center;
-                font-weight: 600;
-            `;
-            
-            this.appendChild(successMessage);
-            
-            // Remove success message after 5 seconds
-            setTimeout(() => {
-                successMessage.remove();
-            }, 5000);
-        });
-    });
-}
-
-// Error handling for images
-function handleImageErrors() {
-    const images = document.querySelectorAll('img');
-    
-    images.forEach(img => {
-        img.addEventListener('error', function() {
-            // Replace with a fallback image
-            this.src = '/placeholder.svg?height=300&width=300';
-            this.alt = 'Cookie placeholder image';
-        });
-    });
-}
-
-// Performance optimization: Lazy loading for images
-function initLazyLoading() {
     if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
+        const imageObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const img = entry.target;
-                    img.src = img.dataset.src || img.src;
+                    img.src = img.src || img.dataset.src;
                     img.classList.remove('lazy');
                     imageObserver.unobserve(img);
                 }
             });
         });
-
-        const lazyImages = document.querySelectorAll('img[data-src]');
-        lazyImages.forEach(img => imageObserver.observe(img));
+        
+        images.forEach(img => {
+            imageObserver.observe(img);
+        });
     }
 }
-
-// Initialize additional functionality
-document.addEventListener('DOMContentLoaded', () => {
-    handleExternalLinks();
-    handleFormSubmissions();
-    handleImageErrors();
-    initLazyLoading();
-});
 
 // Utility functions
 function debounce(func, wait) {
@@ -436,33 +528,34 @@ function throttle(func, limit) {
             inThrottle = true;
             setTimeout(() => inThrottle = false, limit);
         }
-    }
+    };
 }
 
-// Handle window resize
-window.addEventListener('resize', debounce(() => {
-    // Reinitialize components that need resize handling
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-    }
-}, 250));
+// Error handling
+window.addEventListener('error', function(e) {
+    console.error('JavaScript error:', e.error);
+});
 
-// Handle page visibility change
-document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-        // Pause animations when page is not visible
-        const autoPlayElements = document.querySelectorAll('[data-autoplay]');
-        autoPlayElements.forEach(el => {
-            el.style.animationPlayState = 'paused';
-        });
-    } else {
-        // Resume animations when page becomes visible
-        const autoPlayElements = document.querySelectorAll('[data-autoplay]');
-        autoPlayElements.forEach(el => {
-            el.style.animationPlayState = 'running';
-        });
+// Performance monitoring
+window.addEventListener('load', function() {
+    if ('performance' in window) {
+        const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+        console.log(`Page load time: ${loadTime}ms`);
     }
 });
+
+// Service worker registration (if available)
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js')
+            .then(registration => {
+                console.log('SW registered: ', registration);
+            })
+            .catch(registrationError => {
+                console.log('SW registration failed: ', registrationError);
+            });
+    });
+}
 
 // Console welcome message
 console.log(`
