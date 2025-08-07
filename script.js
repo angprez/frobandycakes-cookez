@@ -559,7 +559,7 @@ if ('serviceWorker' in navigator) {
 
 // Console welcome message
 console.log(`
-🍪 Welcome to Frobandy Cakes! 🍪
+🍪 Welcome to Frobandy Cakes Cookez! 🍪
 Stuffed with Awesomeness since 2024
 Made with 💕 in Wichita, Kansas
 `);

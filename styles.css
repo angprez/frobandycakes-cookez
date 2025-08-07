@@ -10,7 +10,7 @@ html {
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Oswald', sans-serif;
     line-height: 1.6;
     color: #333;
     overflow-x: hidden;
@@ -184,7 +184,7 @@ body {
     padding: var(--space-md) var(--space-xl);
     border: none;
     border-radius: var(--radius-full);
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Oswald', sans-serif;
     font-weight: 600;
     font-size: var(--font-size-base);
     text-decoration: none;
@@ -333,7 +333,7 @@ body {
 }
 
 .logo-title {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Oswald', sans-serif;
     font-weight: 800;
     font-size: var(--font-size-xl);
     color: var(--gray-800);
@@ -2158,7 +2158,7 @@ body {
 }
 
 .footer-logo-title {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Oswald', sans-serif;
     font-weight: 800;
     font-size: var(--font-size-lg);
     color: var(--white);
