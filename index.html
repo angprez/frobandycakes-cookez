@@ -3,40 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frobandy Cakes Cookez- Luxury Cookies Stuffed with Awesomeness | Wichita</title>
+    <title>Frobandy Cakes - Luxury Cookies Stuffed with Awesomeness | Wichita</title>
     <meta name="description" content="Wichita's sweetest luxury cookie boutique. Handcrafted cookies stuffed, filled & topped with pure awesomeness. Pre-order your blissful treats today!">
     <meta name="keywords" content="luxury cookies, Wichita bakery, gourmet cookies, stuffed cookies, cookie boutique, artisan cookies">
     
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     
     <!-- Styles -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="styles.css">
-    <style>
-    /* --- Estilos para el Carrusel --- */
-    #flavor-carousel .swiper-slide img {
-        width: 250px !important;
-        height: 250px !important;
-        object-fit: cover !important;
-    }
-
-    /* --- Estilos para el Botón Verde --- */
-    .btn-lil-baddies {
-        background: #B0ff3f !important;
-        border-color: #B0ff3f !important;
-        color: #333 !important; /* Texto oscuro para que se lea bien */
-    }
-
-    /* Efecto al pasar el mouse */
-    .btn-lil-baddies:hover {
-        filter: brightness(0.9);
-    }
-
-</style>
 </head>
 <body>
     <!-- Navigation -->
@@ -44,13 +24,18 @@
         <div class="container-custom">
             <div class="nav-content">
                 <!-- Logo -->
-                <a href="/" class="logo-container">
-                    <img src="public/Frobandy_cakes_logo_original1-removebg-preview.png" height="50" width="50" alt="Frobandy Cakes Cookez logo">
+                <div class="logo-container">
+                    <div class="logo-icon">
+                        <div class="logo-circle gradient-primary">
+                            <i data-lucide="heart" class="logo-heart"></i>
+                        </div>
+                        <div class="sparkle-dot"></div>
+                    </div>
                     <div class="logo-text">
-                        <h1 class="logo-title">Frobandy Cakes Cookez</h1>
+                        <h1 class="logo-title">Frobandy Cakes</h1>
                         <p class="logo-subtitle">Stuffed with Awesomeness</p>
                     </div>
-                </a>
+                </div>
 
                 <!-- Desktop Navigation -->
                 <div class="nav-desktop">
@@ -97,17 +82,18 @@
             <div class="hero-grid">
                 <!-- Left Content -->
                 <div class="hero-text">
-                      <!-- Badge (fuera del h1) -->
-                         <div class="hero-badge hero-badge--float">
-                                <i data-lucide="cookie" class="badge-icon"></i>
-                                <span>Wichita's Sweetest Cookie Boutique</span>
-                                <i data-lucide="sparkles" class="badge-icon"></i>
-                                </div>
-                                <!-- Título -->
-                                <h1 class="hero-title">
-                                <span class="hero-title-main">Luxury Cookies</span>
-                                <span class="hero-title-accent">Stuffed with Awesomeness!</span>
-                                </h1>
+                    <!-- Sweet Badge -->
+                    <div class="hero-badge">
+                        <i data-lucide="cookie" class="badge-icon"></i>
+                        <span>Wichita's Sweetest Cookie Boutique</span>
+                        <i data-lucide="sparkles" class="badge-icon"></i>
+                    </div>
+
+                    <h1 class="hero-title">
+                        <span class="hero-title-main">Luxury Cookies</span>
+                        <br>
+                        <span class="hero-title-accent">Stuffed with Awesomeness!</span>
+                    </h1>
 
                     <p class="hero-description">
                         Net weight 5.5 – 7 oz of pure bliss. Handcrafted with love, stuffed with premium ingredients, and topped
@@ -117,7 +103,7 @@
                     <!-- CTA Buttons -->
                     <div class="hero-buttons">
                         <a href="https://www.instagram.com/frobandycakes?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="btn-primary hero-btn sweet-bounce">Pre-Order Your Bliss! 🍪</a>
-                        <a href="#how-it-works" class="btn-secondary hero-btn">See How It Works ✨</a>
+                        <a href="https://www.instagram.com/frobandycakes?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="btn-secondary hero-btn">See How It Works ✨</a>
                     </div>
 
                     <!-- Fun Stats -->
@@ -140,10 +126,17 @@
                 <!-- Right Content - Hero Media -->
                 <div class="hero-media">
                     <div class="hero-image-container">
-                    <video id="hero-video" class="hero-video" autoplay muted loop playsinline controlslist="nodownload noremoteplayback nofullscreen" disablepictureinpicture poster="/public/video/3.mp4">
-                        <source src="/public/video/3.mp4" type="video/mp4">
-                    </video>
-                </div>
+                        <div id="hero-video-container" class="hero-video-wrapper">
+                            <img id="hero-image" src="/placeholder.svg?height=600&width=800" alt="Delicious Frobandy Cakes cookies" class="hero-img">
+                            <div class="video-overlay">
+                                <button id="play-video-btn" class="play-button">
+                                    <i data-lucide="play" class="play-icon"></i>
+                                </button>
+                            </div>
+                            <video id="hero-video" class="hero-video hidden" autoplay muted loop poster="/placeholder.svg?height=600&width=800">
+                                <source src="/videos/hero-cookies.mp4" type="video/mp4">
+                            </video>
+                        </div>
 
                         <!-- Decorative Elements -->
                         <div class="decorative-element decorative-1 float-gentle"></div>
@@ -250,7 +243,7 @@
                     <div class="size-content">
                         <h3 class="size-title">Mini Cookies</h3>
                         <p class="size-weight">1.2 oz</p>
-                        <p class="size-description">Don't let the size fool you! These minis are packed with all the awesomeness of their bigger siblings. They're perfect for sampling new flavors, celebrating an event, or giving the perfect gift.</p>
+                        <p class="size-description">Bite-sized joy that packs a punch! Perfect for sampling our magical flavors.</p>
                         <div class="size-features">
                             <div class="feature-item">
                                 <div class="feature-bullet bg-primary"></div>
@@ -269,18 +262,19 @@
                     </div>
                 </div>
 
-                <div class="size-card">
-                     <div class="size-icon-container gradient-secondary">
+                <div class="size-card featured">
+                    <div class="popular-badge">Most Popular! 🌟</div>
+                    <div class="size-icon-container gradient-secondary">
                         <i data-lucide="star" class="size-icon"></i>
                     </div>
                     <div class="size-content">
                         <h3 class="size-title">LiL Baddies</h3>
                         <p class="size-weight">3.5 oz</p>
-                        <p class="size-description">Our classic, bakery-sized cookie. It's the perfect sweet spot for a truly satisfying treat that's ideal for sharing (or keeping all to yourself).</p>
+                        <p class="size-description">Bakery size perfection! The ideal shareable treat that's not too big, not too small.</p>
                         <div class="size-features">
                             <div class="feature-item">
                                 <div class="feature-bullet bg-secondary"></div>
-                                <span>The classic bakery size</span>
+                                <span>Bakery standard</span>
                             </div>
                             <div class="feature-item">
                                 <div class="feature-bullet bg-secondary"></div>
@@ -288,26 +282,25 @@
                             </div>
                             <div class="feature-item">
                                 <div class="feature-bullet bg-secondary"></div>
-                                <span>Made fresh for your special order</span>
+                                <span>Most popular choice</span>
                             </div>
                         </div>
-                        <a href="https://www.instagram.com/frobandycakes?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="btn-secondary size-btn btn-lil-baddies">Choose This Size! 🍪</a>
+                        <a href="https://www.instagram.com/frobandycakes?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="btn-secondary size-btn">Choose This Size! 🍪</a>
                     </div>
                 </div>
 
-                <div class="size-card featured">
-                    <div class="popular-badge">Most Popular! 🌟</div>
+                <div class="size-card">
                     <div class="size-icon-container gradient-accent">
                         <i data-lucide="crown" class="size-icon"></i>
                     </div>
                     <div class="size-content">
                         <h3 class="size-title">Big Daddy's</h3>
                         <p class="size-weight">5.5 oz +</p>
-                        <p class="size-description">This is it—the legendary cookie that started it all. Over 5.5 ounces of pure, indulgent bliss, stuffed with extra awesomeness and always ready to blow your mind. This isn't just a cookie, it's an experience.</p>
+                        <p class="size-description">The ultimate indulgence! Fully loaded & extra daddy - always available for maximum bliss.</p>
                         <div class="size-features">
                             <div class="feature-item">
                                 <div class="feature-bullet bg-accent"></div>
-                                <span>Most Popular Choice</span>
+                                <span>Maximum indulgence</span>
                             </div>
                             <div class="feature-item">
                                 <div class="feature-bullet bg-accent"></div>
@@ -327,78 +320,23 @@
 
     <!-- Flavor Showcase Section -->
     <section class="flavor-showcase-section">
-    <div class="container-custom">
-        <div class="section-header">
-            <div class="section-badge">
-                <span class="badge-text">Monthly Magic</span>
-            </div>
-            <h2 class="section-title">
-                Rotating <span class="text-gradient-primary">Flavors</span>
-            </h2>
-            <p class="section-subtitle">
-                Every month brings new magical creations that'll make your taste buds dance! ✨
-            </p>
-        </div>
-
-        <div class="flavor-carousel-container">
-            <div id="flavor-carousel" class="swiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="/public/cookie 1.8.jpg" alt="Sabor 1"></div>
-                    <div class="swiper-slide"><img src="/public/cookie 1.4.jpg" alt="Sabor 2"></div>
-                    <div class="swiper-slide"><img src="/public/cookie 1.7.jpg" alt="Sabor 3"></div>
-                    <div class="swiper-slide"><img src="/public/cookie 1.10.png" alt="Sabor 4"></div>
-                    <div class="swiper-slide"><img src="/public/cookie 1.6.jpg" alt="Sabor 5"></div>
-                    <div class="swiper-slide"><img src="/public/cookie3.png.png" alt="Sabor 6"></div>
-                    <div class="swiper-slide"><img src="/public/placeholder.png.jpg" alt="Sabor 7"></div>
+        <div class="container-custom">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i data-lucide="sparkles" class="badge-icon"></i>
+                    <span class="badge-text">Monthly Magic</span>
+                    <i data-lucide="sparkles" class="badge-icon"></i>
                 </div>
+                <h2 class="section-title">
+                    Rotating <span class="text-gradient-primary">Flavors</span>
+                </h2>
+                <p class="section-subtitle">
+                    Every month brings new magical creations that'll make your taste buds dance! ✨
+                </p>
             </div>
-        </div>
-    </div>
 
-    <style>
-        #flavor-carousel.swiper {
-            width: 100%;
-            padding: 1rem 0;
-            overflow: hidden; /* Añadimos overflow hidden aquí para contener */
-            -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
-            mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
-        }
-        #flavor-carousel .swiper-wrapper {
-            transition-timing-function: linear !important;
-        }
-        #flavor-carousel .swiper-slide {
-            width: auto;
-        }
-        #flavor-carousel .swiper-slide img {
-            width: 250px; 
-            height: 250px; 
-            object-fit: cover;
-            display: block;
-            border-radius: 1.5rem;
-            box-shadow: 0 8px 24px rgba(245, 40, 145, 0.15);}
-    </style>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Verificamos que la librería Swiper exista antes de usarla
-            if (typeof Swiper !== 'undefined') {
-                const swiper = new Swiper('#flavor-carousel', {
-                    speed: 4000, // Hacemos la animación un poco más lenta
-                    loop: true,
-                    autoplay: {
-                        delay: 0,
-                        disableOnInteraction: false,
-                    },
-                    slidesPerView: 'auto',
-                    spaceBetween: 24,
-                    freeMode: true,
-                });
-            } else {
-                console.error("Error: La librería SwiperJS no se ha cargado. Revisa el script en la sección <head> de tu HTML.");
-            }
-        });
-    </script>
-</section>
+            <div class="flavor-carousel-container">
+                <div id="flavor-carousel" class="flavor-carousel">
                     <!-- Flavor cards will be generated by JavaScript -->
                 </div>
 
@@ -448,15 +386,13 @@
                         <i data-lucide="star" class="star filled"></i>
                     </div>
                     <p class="testimonial-text">
-                        "Its my absolute fav. Thanks so much. Wasn't missing this. 🔥❤"
+                        "Me LOVE these cookies! They make Cookie Monster go OM NOM NOM NOM! Best cookies in whole world! 🍪"
                     </p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">
-                        <img src="/public/Cookie monster 1.webp" alt="Avatar de Cookie Monster">
-                        </div>
+                        <div class="author-avatar">🍪</div>
                         <div class="author-info">
-                            <h4 class="author-name">The Cookie Devourer</h4>
-                            <p class="author-location">Sweet Tooth Avenue, KS</p>
+                            <h4 class="author-name">Cookie Monster</h4>
+                            <p class="author-location">Sesame Street</p>
                         </div>
                     </div>
                 </div>
@@ -473,15 +409,13 @@
                         <i data-lucide="star" class="star filled"></i>
                     </div>
                     <p class="testimonial-text">
-                        "Well I definitely need this one!!! Maybe even two of each. Grannies pie is one of my all time favorites! But all of these are so Good 😋"
+                        "OMG these cookies are INSANE! The Big Daddy size is perfect for sharing... but I never do! 😍"
                     </p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <img src="/public/cookie monster 2.webp" alt="Avatar de Cookie Monster">
-                        </div>
+                        <div class="author-avatar">😍</div>
                         <div class="author-info">
-                            <h4 class="author-name">Cookie Monster's Fan</h4>
-                            <p class="author-location">123 Cookie Lane</p>
+                            <h4 class="author-name">Sarah J.</h4>
+                            <p class="author-location">Wichita, KS</p>
                         </div>
                     </div>
                 </div>
@@ -498,15 +432,13 @@
                         <i data-lucide="star" class="star filled"></i>
                     </div>
                     <p class="testimonial-text">
-                        "It's so Good!! Forever a classic OG !!!!"
+                        "I thought I knew what good cookies were... then I tried Frobandy Cakes. My life is forever changed! ✨"
                     </p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <img src="/public/cookie monster 3.webp" alt="Avatar de Cookie Monster">
-                        </div>
+                        <div class="author-avatar">✨</div>
                         <div class="author-info">
-                            <h4 class="author-name">Certified Cookie Lover</h4>
-                            <p class="author-location">Just around the Cookie Corner</p>
+                            <h4 class="author-name">Mike T.</h4>
+                            <p class="author-location">Kansas City, MO</p>
                         </div>
                     </div>
                 </div>
@@ -523,15 +455,13 @@
                         <i data-lucide="star" class="star filled"></i>
                     </div>
                     <p class="testimonial-text">
-                        "Girl. Throw n hands. What is this?! IT WAS AMAZING. I CUT INTO 8ths  and ooooooooo girl"
+                        "These cookies are as sunny as a beautiful day! They make Big Bird's heart sing with joy! 🌞"
                     </p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <img src="/public/cookie monster 4.png" alt="Avatar de Cookie Monster">
-                        </div>
+                        <div class="author-avatar">🌞</div>
                         <div class="author-info">
-                            <h4 class="author-name">The Cookie Critic</h4>
-                            <p class="author-location">Doughville, Kansas</p>
+                            <h4 class="author-name">Big Bird</h4>
+                            <p class="author-location">Sesame Street</p>
                         </div>
                     </div>
                 </div>
@@ -549,23 +479,25 @@
             <div class="footer-content">
                 <!-- Brand -->
                 <div class="footer-brand">
-                    <a href="/" class="footer-logo">
-                        <img src="/public/Frobandy_cakes_logo_original1-removebg-preview.png" alt="Frobandy Cakes Cookez logo" class="footer-logo-img" width="50" height="50">
+                    <div class="footer-logo">
+                        <div class="logo-circle gradient-primary">
+                            <i data-lucide="heart" class="logo-heart"></i>
+                        </div>
                         <div class="footer-logo-text">
-                            <h3 class="footer-logo-title">Frobandy Cakes Cookez</h3>
+                            <h3 class="footer-logo-title">Frobandy Cakes</h3>
                             <p class="footer-logo-subtitle">Stuffed with Awesomeness</p>
                         </div>
-                    </a>
+                    </div>
                     <p class="footer-description">
                         Wichita's sweetest luxury cookie boutique! We craft cookies stuffed, filled & topped with pure
-                        awesomeness. Every bite is 1.2-7 oz of pure bliss! 🍪✨
+                        awesomeness. Every bite is 5.5-7 oz of pure bliss! 🍪✨
                     </p>
                     <div class="social-links">
                         <a href="https://www.instagram.com/frobandycakes?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="social-link gradient-primary">
-                            <img src="/public/ig icon.png" alt="Instagram" />
+                            <i data-lucide="instagram"></i>
                         </a>
                         <a href="https://www.facebook.com/FrobandyCAKES" target="_blank" rel="noopener noreferrer" class="social-link gradient-secondary">
-                            <img src="/public/facebook icon.png" alt="Facebook" />
+                            <i data-lucide="facebook"></i>
                         </a>
                     </div>
                 </div>
@@ -600,14 +532,13 @@
 
             <div class="footer-bottom">
                 <p class="footer-copyright">
-                    © 2024 Frobandy Cakes Cookez. All rights reserved. Made with 💕 and lots of cookies in Wichita, Kansas.
+                    © 2024 Frobandy Cakes. All rights reserved. Made with 💕 and lots of cookies in Wichita, Kansas.
                 </p>
             </div>
         </div>
     </footer>
 
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

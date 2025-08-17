@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Frobandy Cakes Cookez</title>
+    <title>About Us - Frobandy Cakes</title>
     <meta name="description" content="Learn about Fran, the passionate baker behind Frobandy Cakes, and her journey from healthcare to creating Wichita's sweetest luxury cookies.">
     
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     
     <!-- Styles -->
-     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -22,13 +23,18 @@
         <div class="container-custom">
             <div class="nav-content">
                 <!-- Logo -->
-                <a href="/" class="logo-container">
-                    <img src="public/Frobandy_cakes_logo_original1-removebg-preview.png" height="50" width="50" alt="Frobandy Cakes Cookez logo">
+                <div class="logo-container">
+                    <div class="logo-icon">
+                        <div class="logo-circle gradient-primary">
+                            <i data-lucide="heart" class="logo-heart"></i>
+                        </div>
+                        <div class="sparkle-dot"></div>
+                    </div>
                     <div class="logo-text">
-                        <h1 class="logo-title">Frobandy Cakes Cookez</h1>
+                        <h1 class="logo-title">Frobandy Cakes</h1>
                         <p class="logo-subtitle">Stuffed with Awesomeness</p>
                     </div>
-                </a>
+                </div>
 
                 <!-- Desktop Navigation -->
                 <div class="nav-desktop">
@@ -70,14 +76,14 @@
                         <i data-lucide="sparkles" class="badge-icon"></i>
                     </div>
                     <h1 class="about-hero-title">Fran's Sweet Story</h1>
-                    <p class="about-hero-subtitle">The Cookie Artist</p>
+                    <p class="about-hero-subtitle">From Healthcare Hero to Cookie Artist</p>
                     <p class="about-hero-description">
-                        Prior to Reel Goats, Frances has worked within the Mental Health & Academic field working with children and families providing mental health services such as therapeutic interventions, case management, program development & evaluation, supervision of staff and more.
+                        Discover the passionate journey behind every handcrafted cookie and learn how Fran transformed her love for baking into Wichita's most beloved cookie boutique.
                     </p>
                 </div>
                 <div class="about-hero-image">
                     <div class="hero-image-container">
-                        <img src="/public/Frances.jpg" alt="Fran, owner of Frobandy Cakes" class="hero-img" style="width: 500px; height: auto; display: block; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); border: 3px solid #fff;">
+                        <img src="/placeholder.svg?height=500&width=500" alt="Fran, owner of Frobandy Cakes" class="hero-img">
                         <div class="image-decorations">
                             <div class="decoration decoration-1 float-gentle"></div>
                             <div class="decoration decoration-2 sparkle"></div>
@@ -89,79 +95,102 @@
         </div>
     </section>
 
-    <!-- Carousel Section -->
-<section class="cookie-gallery-section" style="padding: 4rem 0;">
-    <div class="container-custom">
-        <div class="section-header" style="text-align: center; margin-bottom: 2rem;">
-            <h2 class="section-title">
-                A Glimpse of Our <span class="text-gradient-primary">Creations</span>
-            </h2>
-            <p class="section-subtitle">
-                Every cookie is a piece of art, stuffed with love and the finest ingredients.
-            </p>
-        </div>
+    <!-- Fran's Story Section -->
+    <section class="story-section">
+        <div class="container-custom">
+            <div class="story-content">
+                <div class="story-main">
+                    <div class="story-header">
+                        <h2 class="story-title">The Sweet Beginning</h2>
+                        <div class="story-divider"></div>
+                    </div>
+                    
+                    <div class="story-text">
+                        <div class="story-paragraph">
+                            <div class="paragraph-icon">
+                                <i data-lucide="heart" class="icon"></i>
+                            </div>
+                            <div class="paragraph-content">
+                                <p>
+                                    Frances discovered her passion for baking during a challenging period in her life. 
+                                    What started as a therapeutic hobby quickly blossomed into something extraordinary. 
+                                    Her background in healthcare taught her the importance of precision, care, and 
+                                    attention to detail - qualities that now define every cookie she creates.
+                                </p>
+                            </div>
+                        </div>
 
-        <div class="flavor-carousel-container">
-            <div id="flavor-carousel" class="swiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="/public/cookie 1.1.JPG" alt="Sabor 1"></div>
-                    <div class="swiper-slide"><img src="/public/cookie 1.6.jpg" alt="Sabor 2"></div>
-                    <div class="swiper-slide"><img src="/public/cookie monster 4.png" alt="Sabor 3"></div>
-                    <div class="swiper-slide"><img src="/public/cookie 1.8.jpg" alt="Sabor 4"></div>
-                    <div class="swiper-slide"><img src="/public/Cookie monster 1.webp" alt="Sabor 5"></div>
-                    <div class="swiper-slide"><img src="/public/cookie3.png.png" alt="Sabor 6"></div>
-                    <div class="swiper-slide"><img src="/public/placeholder.png.jpg" alt="Sabor 7"></div>
-                    <div class="swiper-slide"><img src="/public/cookie 1.10.png" alt="Sabor 8"></div>
-                    <div class="swiper-slide"><img src="/public/cookie monster 2.webp" alt="Sabor 9"></div>
-                    <div class="swiper-slide"><img src="/public/cookie 1.7.jpg" alt="Sabor 10"></div>
-                    <div class="swiper-slide"><img src="/public/cookie monster 3.webp" alt="Sabor 11"></div>
+                        <div class="story-paragraph">
+                            <div class="paragraph-icon">
+                                <i data-lucide="sparkles" class="icon"></i>
+                            </div>
+                            <div class="paragraph-content">
+                                <p>
+                                    After years of perfecting her craft and sharing her creations with friends and family, 
+                                    Fran realized she had something special. Her cookies weren't just desserts; they were 
+                                    experiences that brought people together and created lasting memories.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="story-paragraph">
+                            <div class="paragraph-icon">
+                                <i data-lucide="cookie" class="icon"></i>
+                            </div>
+                            <div class="paragraph-content">
+                                <p>
+                                    Today, Frobandy Cakes represents Fran's commitment to excellence and her belief 
+                                    that every cookie should be a moment of pure joy. Each creation is stuffed with not 
+                                    just incredible ingredients, but with love, passion, and a little bit of magic.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="story-sidebar">
+                    <div class="story-card">
+                        <div class="card-header">
+                            <i data-lucide="briefcase" class="card-icon"></i>
+                            <h3 class="card-title">Professional Background</h3>
+                        </div>
+                        <ul class="story-list">
+                            <li>Healthcare Professional</li>
+                            <li>Self-Taught Baker</li>
+                            <li>Cookie Artist & Innovator</li>
+                            <li>Wichita Local Business Owner</li>
+                        </ul>
+                    </div>
+
+                    <div class="story-card">
+                        <div class="card-header">
+                            <i data-lucide="star" class="card-icon"></i>
+                            <h3 class="card-title">Cookie Philosophy</h3>
+                        </div>
+                        <ul class="story-list">
+                            <li>Quality over Quantity</li>
+                            <li>Every Cookie is Unique</li>
+                            <li>Stuffed with Love</li>
+                            <li>Creating Sweet Memories</li>
+                        </ul>
+                    </div>
+
+                    <div class="story-card">
+                        <div class="card-header">
+                            <i data-lucide="award" class="card-icon"></i>
+                            <h3 class="card-title">What Makes Us Special</h3>
+                        </div>
+                        <ul class="story-list">
+                            <li>Handcrafted with Love</li>
+                            <li>Premium Ingredients Only</li>
+                            <li>Unique Flavor Combinations</li>
+                            <li>Made Fresh to Order</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <style>
-        #flavor-carousel.swiper {
-            width: 100%;
-            padding: 1rem 0;
-            overflow: hidden;
-            -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
-            mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
-        }
-        #flavor-carousel .swiper-wrapper {
-            transition-timing-function: linear !important;
-        }
-        #flavor-carousel .swiper-slide {
-            width: auto;
-        }
-        #flavor-carousel .swiper-slide img {
-            width: 250px;
-            height: 250px;
-            object-fit: cover;
-            display: block;
-            border-radius: 1.5rem;
-            box-shadow: 0 8px 24px rgba(245, 40, 145, 0.15);
-        }
-    </style>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            if (typeof Swiper !== 'undefined') {
-                const swiper = new Swiper('#flavor-carousel', {
-                    speed: 4000,
-                    loop: true,
-                    autoplay: {
-                        delay: 0,
-                        disableOnInteraction: false,
-                    },
-                    slidesPerView: 'auto',
-                    spaceBetween: 24,
-                    freeMode: true,
-                });
-            }
-        });
-    </script>
-</section>
+    </section>
 
     <!-- Values Section -->
     <section class="values-section">
@@ -206,7 +235,7 @@
                 <div class="cta-text">
                     <h2 class="cta-title">Ready to Experience Cookie Magic?</h2>
                     <p class="cta-description">
-                        Join the Frobandy Cakes Cookez family and taste the difference that passion makes!
+                        Join the Frobandy Cakes family and taste the difference that passion makes!
                     </p>
                 </div>
                 <div class="cta-buttons">
@@ -229,23 +258,25 @@
             <div class="footer-content">
                 <!-- Brand -->
                 <div class="footer-brand">
-                    <a href="/" class="footer-logo">
-                        <img src="/public/Frobandy_cakes_logo_original1-removebg-preview.png" alt="Frobandy Cakes Cookez logo" class="footer-logo-img" width="50" height="50">
+                    <div class="footer-logo">
+                        <div class="logo-circle gradient-primary">
+                            <i data-lucide="heart" class="logo-heart"></i>
+                        </div>
                         <div class="footer-logo-text">
-                            <h3 class="footer-logo-title">Frobandy Cakes Cookez</h3>
+                            <h3 class="footer-logo-title">Frobandy Cakes</h3>
                             <p class="footer-logo-subtitle">Stuffed with Awesomeness</p>
                         </div>
-                    </a>
+                    </div>
                     <p class="footer-description">
                         Wichita's sweetest luxury cookie boutique! We craft cookies stuffed, filled & topped with pure
-                        awesomeness. Every bite is 1.2-7 oz of pure bliss! 🍪✨
+                        awesomeness. Every bite is 5.5-7 oz of pure bliss! 🍪✨
                     </p>
                     <div class="social-links">
                         <a href="https://www.instagram.com/frobandycakes?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="social-link gradient-primary">
-                            <img src="/public/ig icon.png" alt="Instagram">
+                            <i data-lucide="instagram"></i>
                         </a>
                         <a href="https://www.facebook.com/FrobandyCAKES" target="_blank" rel="noopener noreferrer" class="social-link gradient-secondary">
-                            <img src="/public/facebook icon.png" alt="Facebook">
+                            <i data-lucide="facebook"></i>
                         </a>
                     </div>
                 </div>
@@ -280,14 +311,13 @@
 
             <div class="footer-bottom">
                 <p class="footer-copyright">
-                    © 2024 Frobandy Cakes Cookez. All rights reserved. Made with 💕 and lots of cookies in Wichita, Kansas.
+                    © 2024 Frobandy Cakes. All rights reserved. Made with 💕 and lots of cookies in Wichita, Kansas.
                 </p>
             </div>
         </div>
     </footer>
 
     <!-- Scripts -->
-     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
